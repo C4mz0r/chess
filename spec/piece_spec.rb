@@ -24,11 +24,11 @@ describe Piece do
 	describe Pawn do
 		it "should have the correct attack moves" do
 			expect(@pawn.has_moved).to eq(false)
-			expect(@pawn.attack_moves).to eq([[1,-1], [1,1]])		
+			expect(@pawn.attack_moves).to eq([[-1,-1], [-1,1]])		
 		end
 
 		it "should have attack moves in the opposite direction if it is black pawn" do
-			expect(@black_pawn.attack_moves).to eq([[-1,-1], [-1,1]])
+			expect(@black_pawn.attack_moves).to eq([[1,-1], [1,1]])
 		end
 	end
 end

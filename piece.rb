@@ -9,10 +9,10 @@ class Piece
 		@color = color
 		@has_moved = false
 
-		if (@color == :white)				
+		if (@color == :black)				
 			@moves = moves
 			@attack_moves = attack_moves
-		elsif (@color == :black)
+		elsif (@color == :white)
 			@moves = Piece.reverseDirection(moves)
 			@attack_moves = Piece.reverseDirection(attack_moves)
 		end
