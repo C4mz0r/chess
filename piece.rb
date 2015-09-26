@@ -4,11 +4,12 @@ class Piece
 	attr_accessor :moves
 	attr_accessor :first_moves
 	attr_accessor :attack_moves
+	attr_accessor :unicode
 
-	def initialize(color, moves, attack_moves = moves)
+	def initialize(color, moves, attack_moves = moves, unicode = nil)
 		@color = color
 		@has_moved = false
-
+		@unicode = unicode
 		if (@color == :black)				
 			@moves = moves
 			@attack_moves = attack_moves
@@ -36,14 +37,16 @@ class Pawn < Piece
 	def initialize(color)
 		moves = [ [1,0], [2,0] ]
 		attack_moves = [ [1,-1], [1,1] ]
-		super(color, moves, attack_moves)
+		unicode = (color == :white) ? "\u2659" : "\u265F"
+		super(color, moves, attack_moves, unicode)
 	end
 end
 
 class King < Piece
 	def initialize(color)
 		moves = [ [1,0], [1,1], [0,1], [-1,1], [-1,0], [-1,-1], [0,-1], [1,-1] ]
-		super(color, moves)
+		unicode = (color == :white) ? "\u2654" : "\u265A"
+		super(color, moves, moves, unicode)
 	end
 
 end
@@ -58,14 +61,16 @@ class Rook < Piece
 				[6,0], [0,6], [-6,0], [0,-6],
 				[7,0], [0,7], [-7,0], [0,-7]				
 		 	]
-		super(color, moves)
+		unicode = (color == :white) ? "\u2656" : "\u265C"
+		super(color, moves, moves, unicode)
 	end
 end
 
 class Knight < Piece
 	def initialize(color)
 		moves = [ 	[1,2], [1,-2], [-1,2], [-1,-2], [2,1], [2,-1], [-2,1], [-2,-1] 	]
-		super(color, moves)
+		unicode = (color == :white) ? "\u2658" : "\u265E"
+		super(color, moves, moves, unicode)
 	end
 end
 
@@ -76,7 +81,8 @@ class Bishop < Piece
 				[1,-1], [2,-2], [3,-3], [4,-4], [5,-5], [6,-6], [7,-7],
 				[-1,-1], [-2,-2], [-3,-3], [-4,-4], [-5,-5], [-6,-6], [-7,-7]
 		 	]
-		super(color, moves)
+		unicode = (color == :white) ? "\u2657" : "\u265D"
+		super(color, moves, moves, unicode)
 	end
 end
 
@@ -95,6 +101,7 @@ class Queen < Piece
 				[7,0], [0,7], [-7,0], [0,-7],
 				[8,0], [0,8], [-8,0], [0,-8]
 		 	]
-		super(color, moves)
+		unicode = (color == :white) ? "\u2655" : "\u265B"
+		super(color, moves, moves, unicode)
 	end
 end

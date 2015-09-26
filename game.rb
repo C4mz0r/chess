@@ -9,9 +9,8 @@ class Game
 	def gameLoop()		
 		loop do
 			@manager.chessboard.draw
-			puts "[#{@manager.current_turn}]  Enter move (fromRow fromCol toRow toCol):"
-			a,b,c,d = gets.chomp.split
-			puts "Got abcd = #{a}, #{b}, #{c}, #{d}"
+			puts "[#{@manager.current_turn}]  Enter move (letter # letter #):"
+			a,b,c,d = gets.chomp.split			
 			@manager.movePiece([a.to_i,b.to_i],[c.to_i,d.to_i])
 		end
 	end
