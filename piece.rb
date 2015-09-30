@@ -18,16 +18,7 @@ class Piece
 			@attack_moves = Piece.reverseDirection(attack_moves)
 		end
 	end
-=begin
-	def tryMove( move )
-		if moves.include?move
-			puts "Trying to move with #{move}"
-		else
-			puts "Invalid move attempted for piece"
-			return false
-		end
-	end
-=end
+
 	def Piece.reverseDirection( possible_moves )
 		possible_moves.map{ |row,col| [-row,col] }
 	end
